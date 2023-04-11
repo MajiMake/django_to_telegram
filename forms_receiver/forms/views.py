@@ -1,5 +1,4 @@
 import json as js
-from .models import Form
 from .configs import get_config
 import requests
 from django.http import HttpResponse, JsonResponse
