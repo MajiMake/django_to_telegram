@@ -1,0 +1,4 @@
+venv
+.idea
+tests
+/forms_receiver/forms/configs.py
