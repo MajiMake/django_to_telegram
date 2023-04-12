@@ -1,13 +1,12 @@
 import json as js
-from .configs import get_config
 import requests
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-config = get_config('.env')
+
 def telegram(form):
 
-    token = config.bot.token
+    token = 'token'
     url = f"https://api.telegram.org/bot{token}/sendMessage"
     payload = {
         "chat_id": '291870728',
