@@ -1,7 +1,7 @@
-import json as js
 import requests
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+import json as js
 
 
 def telegram(form):
@@ -14,7 +14,6 @@ def telegram(form):
     }
     # Send the POST request to the Telegram bot API
     response = requests.post(url, data=payload)
-    print(response.text)
 
     # Check the response status code
     if response.status_code == 200:
@@ -23,6 +22,9 @@ def telegram(form):
         print("Failed to send message.")
 @csrf_exempt
 def handler(request):
-    data = js.loads(request.body)
-    telegram(data)
-    return HttpResponse(data['name'])
+    text = ''
+    data: dict = js.loads(request.body)
+    for key, value in data.items():
+        text += f'{key} - {value}\n'
+    telegram(text)
+    return HttpResponse('Принято')

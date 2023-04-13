@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-vtwb()l*o2_a_67i2r)f#2kq0@jbyz@%ho8rhmop!xd_2qy+pl
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1, baxota9262.pythonanywhere.com ']
 
 
 # Application definition
