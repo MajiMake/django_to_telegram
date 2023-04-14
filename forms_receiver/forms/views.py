@@ -19,12 +19,11 @@ def telegram(form):
     if response.status_code == 200:
         return "Message sent successfully."
     else:
-        print("Failed to send message.")
+        return "Failed to send message."
 @csrf_exempt
 def handler(request):
     text = ''
-    data: dict = js.loads(request.body)
+    data: dict = js.loads(request.body)['params']
     for key, value in data.items():
-        text += f'{key} - {value}\n'
-    telegram(text)
-    return HttpResponse('Принято')
+        text += f'{key}\n{value}\n\n'
+    return HttpResponse(telegram(text))
