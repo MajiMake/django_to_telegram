@@ -9,7 +9,7 @@ def telegram(form):
     token = 'token'
     url = f"https://api.telegram.org/bot{token}/sendMessage"
     payload = {
-        "chat_id": '291870728',
+        "chat_id": 'chat_id',
         "text": f"{form}",
     }
     # Send the POST request to the Telegram bot API
