@@ -13,9 +13,9 @@ async def telegram(form):
 
 
 @csrf_exempt
-def handler(request):
+async def handler(request):
     text = ''
     data: dict = js.loads(request.body)['params']
     for key, value in data.items():
         text += f'{key}\n{value}\n\n'
-    return HttpResponse(telegram(text))
+    return HttpResponse(await telegram(text))
