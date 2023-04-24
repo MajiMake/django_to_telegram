@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json as js
 import aiogram
+import asyncio
 
 
 async def telegram(form):
@@ -13,9 +14,11 @@ async def telegram(form):
 
 
 @csrf_exempt
-async def handler(request):
+def handler(request):
+    print('hih')
     text = ''
     data: dict = js.loads(request.body)['params']
     for key, value in data.items():
         text += f'{key}\n{value}\n\n'
-    return HttpResponse(await telegram(text))
+    asyncio.run(telegram(text))
+    return HttpResponse('OK')
