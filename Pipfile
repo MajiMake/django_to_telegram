@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 requests = "*"
 django = "*"
-aiogram = "==3.0.0b7"
+rocketchat-api = "*"
 
 [dev-packages]
 
